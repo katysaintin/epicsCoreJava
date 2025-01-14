@@ -18,7 +18,7 @@ import org.epics.util.stats.Range;
  *
  * @author carcassi
  */
-public abstract class Display {
+public abstract class Display implements DescriptionProvider {
 
     /**
      * The range for the value when displayed.
@@ -64,12 +64,6 @@ public abstract class Display {
      * @return the default format for all values
      */
     public abstract NumberFormat getFormat();
-
-    /**
-     * Human-readable description of the underlying data, e.g. the DESC field of an EPICS record.
-     * @return description, or <code>null</code> if not set.
-     */
-    public abstract String getDescription();
     
         
     /**

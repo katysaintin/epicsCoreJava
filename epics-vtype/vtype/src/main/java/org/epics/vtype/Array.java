@@ -28,8 +28,10 @@ import org.epics.util.array.ListNumber;
  * 
  * @author carcassi
  */
-public abstract class Array extends VType {
+public abstract class Array extends VType implements DescriptionProvider {
 
+    private String description = null;
+    
     /**
      * Return the object containing the array data.
      * <p>
@@ -57,4 +59,13 @@ public abstract class Array extends VType {
      * @return the dimension sizes
      */
     public abstract ListInteger getSizes();
+    
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

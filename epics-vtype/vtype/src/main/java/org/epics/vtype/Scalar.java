@@ -14,12 +14,23 @@ package org.epics.vtype;
  *
  * @author carcassi
  */
-public abstract class Scalar extends VType implements AlarmProvider, TimeProvider {
+public abstract class Scalar extends VType implements AlarmProvider, TimeProvider, DescriptionProvider {
 
+    private String description = null;
+    
     /**
      * Returns the value. Never null.
      *
      * @return the value
      */
     public abstract Object getValue();
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
